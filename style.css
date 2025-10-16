@@ -1,115 +1,167 @@
-/* Global reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(45deg, #1f2a44, #ff00ff);
-  color: white;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  animation: pulseBackground 5s infinite ease-in-out;
+  font-family: "Orbitron", sans-serif;
+  margin: 0;
+  background: radial-gradient(circle at top, #1a0033, #3a0ca3, #10002b);
+  color: #e0b3ff;
+  overflow-x: hidden;
 }
 
-/* Animasi latar belakang */
-@keyframes pulseBackground {
-  0% { background: linear-gradient(45deg, #1f2a44, #ff00ff); }
-  50% { background: linear-gradient(45deg, #ff00ff, #1f2a44); }
-  100% { background: linear-gradient(45deg, #1f2a44, #ff00ff); }
+/* === BLOCK === */
+header {
+  display: block;
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(20, 0, 40, 0.6);
+  box-shadow: 0 0 30px rgba(187, 134, 252, 0.4);
+  border-bottom: 2px solid #bb86fc;
+  animation: glowPulse 3s infinite alternate;
 }
 
-/* Container utama dengan block display */
+header h1 {
+  margin: 0;
+  color: #bb86fc;
+  text-shadow: 0 0 10px #bb86fc, 0 0 25px #7b2cbf;
+}
+
+header p {
+  color: #d4bfff;
+  margin-top: 8px;
+}
+
+/* === INLINE === */
+nav {
+  text-align: center;
+  margin-top: 15px;
+}
+
+nav a {
+  display: inline;
+  color: #c77dff;
+  text-decoration: none;
+  margin: 0 15px;
+  padding: 5px 10px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+nav a:hover {
+  color: #fff;
+  border-bottom: 2px solid #bb86fc;
+  text-shadow: 0 0 10px #bb86fc;
+}
+
+/* === INLINE-BLOCK === */
 .container {
   text-align: center;
-  padding: 40px;
-  background: rgba(0, 0, 0, 0.7);
+  margin-top: 40px;
+}
+
+.card {
+  display: inline-block;
+  width: 280px;
+  margin: 20px;
+  background: rgba(187, 134, 252, 0.07);
+  border: 1px solid rgba(187, 134, 252, 0.3);
   border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 25px rgba(187, 134, 252, 0.25);
+  vertical-align: top;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card1 {
+  display: inline-block;
+  width: 280px;
+  margin: 20px;
+  background: rgba(187, 134, 252, 0.07);
+  border: 1px solid rgba(187, 134, 252, 0.3);
+  border-radius: 15px;
+  padding: 20px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 25px rgba(187, 134, 252, 0.25);
+  vertical-align: top;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: auto;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 40px rgba(187, 134, 252, 0.8);
+}
+
+.card img {
   width: 100%;
-  max-width: 800px;
-  display: block; /* Container adalah block-level */
+  border-radius: 10px;
+  border: 1px solid rgba(187, 134, 252, 0.3);
 }
 
-/* Judul dengan efek glowing */
-h1 {
-  font-size: 3em;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  color: #00FFDD;
-  animation: glow 1.5s infinite alternate;
+.card h3 {
+  margin-top: 15px;
+  color: #e0b3ff;
+  text-shadow: 0 0 8px #bb86fc;
 }
 
-/* Teks konten */
-.text-box {
-  font-size: 1.2em;
-  color: #b0b0b0;
-  margin-top: 20px;
-  animation: fadeIn 3s ease-in-out;
+.card p {
+  color: #d9caff;
+  font-size: 14px;
 }
 
-/* Tombol dengan inline-block */
-.btn-container {
-  display: inline-block;
-  margin-top: 30px;
+/* FOOTER */
+footer {
+  display: block;
+  text-align: center;
+  margin-top: 60px;
+  padding: 20px;
+  border-top: 1px solid rgba(187, 134, 252, 0.3);
+  color: #d9caff;
+  font-size: 14px;
 }
 
-.btn {
-  display: inline-block;
-  padding: 15px 30px;
-  background: linear-gradient(45deg, #00FFDD, #ff00ff);
-  color: #000;
-  font-size: 1.1em;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.2s ease;
-  margin-right: 20px; /* Jarak antar tombol */
+/* === PAGE TRANSITION ANIMATION === */
+body {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
 }
 
-/* Efek hover pada tombol */
-.btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(0, 255, 221, 0.8);
-  filter: brightness(1.2);
-}
-
-/* Efek klik pada tombol */
-.btn:active {
-  transform: scale(0.95);
-  box-shadow: 0 0 10px rgba(0, 255, 221, 1);
-  filter: brightness(0.9);
-}
-
-/* Efek glowing pada teks */
-@keyframes glow {
-  0% {
-    text-shadow: 0 0 10px #00FFDD, 0 0 20px #00FFDD, 0 0 30px #ff00ff;
-  }
-  50% {
-    text-shadow: 0 0 20px #00FFDD, 0 0 30px #00FFDD, 0 0 40px #ff00ff;
-  }
-  100% {
-    text-shadow: 0 0 10px #00FFDD, 0 0 20px #00FFDD, 0 0 30px #ff00ff;
-  }
-}
-
-/* Efek fade-in untuk teks */
 @keyframes fadeIn {
-  0% {
+  from {
     opacity: 0;
     transform: translateY(20px);
+    filter: blur(5px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Efek saat link diklik */
+.fade-out {
+  animation: fadeOut 0.8s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-30px);
+    filter: blur(5px);
+  }
+}
+
+/* === ANIMASI CAHAYA GLOW === */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 20px rgba(187, 134, 252, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(187, 134, 252, 0.8);
   }
 }
